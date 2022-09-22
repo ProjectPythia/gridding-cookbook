@@ -35,10 +35,8 @@ Pangeo thread covering an (no package) alternative to xESMF: https://discourse.p
 </a>
 
 ## Structure
-(State one or more sections that will comprise the notebook. E.g., *This cookbook is broken up into two main sections - "Foundations" and "Example Workflows."* Then, describe each section below.)
+There are three notebooks, each one stands on there own, but reccomend doing them in the order below:
 
-### Section 1 ( Replace with the title of this section, e.g. "Foundations" )
-(Add content for this section, e.g., "The foundational content includes ... ")
-
-### Section 2 ( Replace with the title of this section, e.g. "Example workflows" )
-(Add content for this section, e.g., "Example workflows include ... ")
+1. xESMF
+2. Verde
+3. pyresample
