@@ -1,6 +1,8 @@
 format: jb-book
 root: README
 parts:
-  - caption: Introduction
+  - caption: re(Gridding)
     chapters:
-      - file: notebooks/notebook-template
+      - file: notebooks/xESMF_introduction
+      - file: notebooks/verde_intro
+      - file: notebooks/pyresample_intro
