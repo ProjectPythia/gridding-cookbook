@@ -9,11 +9,24 @@ This Project Pythia Cookbook covers ... (replace `...` with the main subject of 
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+Quick repo to check out a few different gridding packages within short notebooks.
+
+Packages:
+
+[Verde](https://www.fatiando.org/verde/latest/)
+
+[xESMF](https://xesmf.readthedocs.io/en/latest/)
+
+[pyresample](https://pyresample.readthedocs.io/en/latest/)
+
+Pangeo thread covering an (no package) alternative to xESMF: https://discourse.pangeo.io/t/conservative-region-aggregation-with-xarray-geopandas-and-sparse/2715
+
+
+[Gio](https://github.com/agilescientific/gio) is a neat package for importing some subsurface formats into xarray datasets. This will not be covered in this cookbook, as it is a file converter than a (re)gridder. 
 
 ## Authors
 
-[First Author](@first-author), [Second Author](@second-author), etc. *Acknowledge primary content authors here*
+[Thomas Martin](https://github.com/ThomasMGeo)
 
 ### Contributors
 
