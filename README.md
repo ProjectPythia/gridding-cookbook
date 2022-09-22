@@ -30,8 +30,8 @@ Pangeo thread covering an (no package) alternative to xESMF: https://discourse.p
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythiaCookbooks/cookbook-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythiaCookbooks/cookbook-template" />
+<a href="https://github.com/ThomasMGeo/gridding-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ThomasMGeo/gridding-cookbook" />
 </a>
 
 ## Structure
