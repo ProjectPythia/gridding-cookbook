@@ -1,10 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Project Pythia Cookbook Template
-author: the <a href="https://projectpythia.org/">Project Pythia</a> Community
+title: (re)Gridding with xarray
+author: Thomas Martin
 logo: notebooks/images/logos/pythia_logo-white-rtext.svg
-email: projectpythia@ucar.edu
+email: tmartin@ucar.edu
 copyright: '2022'
 
 description: A sample cookbook description.
