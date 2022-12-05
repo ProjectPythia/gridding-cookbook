@@ -2,8 +2,8 @@
 
 # (re)Gridding with xarray Cookbook
 
-[![nightly-build](https://github.com/ProjectPythiaCookbooks/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythiaCookbooks/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythiaCookbooks/gridding-cookbook/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
+[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythia/gridding-cookbook/main?labpath=notebooks)
 
 This small cookbook will introduce three python packages that grids and re-grids data, that can interface with the xarray ecosystem. This is a common workflow, as modeling (climate, ML, etc.) outputs might not be all on the same scale or same grid. 
 
@@ -30,8 +30,8 @@ Pangeo thread covering an (no package) alternative to xESMF: https://discourse.p
 
 ### Contributors
 
-<a href="https://github.com/ThomasMGeo/gridding-cookbook/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ThomasMGeo/gridding-cookbook" />
+<a href="https://github.com/ProjectPythia/gridding-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/gridding-cookbook" />
 </a>
 
 ## Structure
