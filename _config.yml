@@ -17,7 +17,7 @@ tags:
 
 # Execute the notebooks upon build
 execute:
-  execute_notebooks: binder
+  execute_notebooks: cache
   timeout: 600
   allow_errors: False  # cells with expected failures must set the `raises-exception` cell tag
 
