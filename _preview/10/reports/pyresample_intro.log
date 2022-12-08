@@ -32,7 +32,7 @@ File [0;32m/usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site
 [0;32m---> 55[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     56[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/home/runner/work/gridding-cookbook/gridding-cookbook/notebooks/data/onestorm.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '2efb8a03-af5d-41f5-8dd3-73ca3dfe6e35']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/home/runner/work/gridding-cookbook/gridding-cookbook/notebooks/data/onestorm.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '95a2383e-dfd4-4555-9982-53a3e0a08af3']
 
 During handling of the above exception, another exception occurred:
 
