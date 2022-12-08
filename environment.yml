@@ -1,9 +1,23 @@
-name: cookbook-dev
+name: gridding-cookbook-dev
 channels:
   - conda-forge
 dependencies:
   - jupyter-book
   - jupyterlab
+  - pandas
+  - numpy
+  - matplotlib
+  - xarray
+  - dask
+  - netcdf4
+  - zarr
+  - pyresample
+  - cartopy
+  - appdirs
+  - verde
+  - xesmf
+  - seaborn
   - pip
   - pip:
       - sphinx-pythia-theme
+      - watermark
