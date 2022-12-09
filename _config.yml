@@ -16,7 +16,7 @@ tags:
     - samplepackage
 
 execute:
-  execute_notebooks: binder
+  execute_notebooks: force
   timeout: 600
   allow_errors: False  # cells with expected failures must set the `raises-exception` cell tag
 
