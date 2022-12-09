@@ -412,14 +412,13 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dask      : 2022.7.0
-pandas    : 1.4.3
-pyresample: 1.25.1
-xarray    : 0.20.1
-sys       : 3.9.13 | packaged by conda-forge | (main, May 27 2022, 17:01:00) 
-[Clang 13.0.1 ]
-numpy     : 1.21.5
-matplotlib: 3.5.2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dask      : 2022.12.0
+xarray    : 2022.12.0
+pyresample: 1.26.0.post0
+pandas    : 1.5.2
+sys       : 3.10.8 | packaged by conda-forge | (main, Nov 22 2022, 08:26:04) [GCC 10.4.0]
+matplotlib: 3.6.2
+numpy     : 1.23.5
 </pre></div>
 </div>
 </div>
@@ -474,6 +473,7 @@ matplotlib: 3.5.2
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -486,7 +486,7 @@ body.vscode-dark {
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -703,6 +703,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -724,14 +729,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -741,13 +748,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -785,7 +795,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -795,14 +806,15 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:            (x: 768, y: 768, t: 12, x2: 192, y2: 192, x3: 384, y3: 384, x4: 48, y4: 48)
+Dimensions:            (x: 768, y: 768, t: 12, x2: 192, y2: 192, x3: 384,
+                        y3: 384, x4: 48, y4: 48)
 Dimensions without coordinates: x, y, t, x2, y2, x3, y3, x4, y4
 Data variables:
     visible            (x, y, t) float32 ...
     water_vapor        (x2, y2, t) float32 ...
     clean_infrared     (x2, y2, t) float32 ...
     vil                (x3, y3, t) float32 ...
-    lightning_flashes  (x4, y4, t) float32 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0
+    lightning_flashes  (x4, y4, t) float32 ...
 Attributes:
     t:        time dimension of all images. These are 5-min time steps
     x:        x pixel dimension of the visible imagery
@@ -812,31 +824,7 @@ Attributes:
     x3:       x pixel dimension of the vertically integrated liquid imagery
     y3:       y pixel dimension the vertically integrated liquid imagery
     x4:       x pixel dimension of the lightning flashes
-    y4:       y pixel dimension of the lightning flashes</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7de94b8e-bd1c-430e-b276-07e7b227a765' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7de94b8e-bd1c-430e-b276-07e7b227a765' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>x</span>: 768</li><li><span>y</span>: 768</li><li><span>t</span>: 12</li><li><span>x2</span>: 192</li><li><span>y2</span>: 192</li><li><span>x3</span>: 384</li><li><span>y3</span>: 384</li><li><span>x4</span>: 48</li><li><span>y4</span>: 48</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3384a385-0516-441f-b7f2-23c58a0a06fa' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3384a385-0516-441f-b7f2-23c58a0a06fa' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-b10169ee-454b-48b5-9f02-0118e06fe245' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b10169ee-454b-48b5-9f02-0118e06fe245' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>visible</span></div><div class='xr-var-dims'>(x, y, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-15a7f28a-e5b8-49ce-bc68-73d61a8869a9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-15a7f28a-e5b8-49ce-bc68-73d61a8869a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d92e306-ddec-46b3-a2da-1f719e06c838' class='xr-var-data-in' type='checkbox'><label for='data-8d92e306-ddec-46b3-a2da-1f719e06c838' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[7077888 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>water_vapor</span></div><div class='xr-var-dims'>(x2, y2, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-840b2adc-b586-4f30-8487-3cadbd45690f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-840b2adc-b586-4f30-8487-3cadbd45690f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9623e5b5-8f06-4355-8557-e4c6333d212a' class='xr-var-data-in' type='checkbox'><label for='data-9623e5b5-8f06-4355-8557-e4c6333d212a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[442368 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>clean_infrared</span></div><div class='xr-var-dims'>(x2, y2, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ead01915-e649-4258-b642-e281b3cd5fec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ead01915-e649-4258-b642-e281b3cd5fec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-474a58b4-e11e-41f3-93fc-3b27520e830e' class='xr-var-data-in' type='checkbox'><label for='data-474a58b4-e11e-41f3-93fc-3b27520e830e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[442368 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vil</span></div><div class='xr-var-dims'>(x3, y3, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-73eeadea-36f3-4bd6-a4db-0b6880b01cae' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-73eeadea-36f3-4bd6-a4db-0b6880b01cae' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a56b4481-e0d2-4a86-8398-e6ed107cb592' class='xr-var-data-in' type='checkbox'><label for='data-a56b4481-e0d2-4a86-8398-e6ed107cb592' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[1769472 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lightning_flashes</span></div><div class='xr-var-dims'>(x4, y4, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-17978977-bd76-4b1c-a709-55f1da2d1a8b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-17978977-bd76-4b1c-a709-55f1da2d1a8b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1ab5dcd1-1b09-41d7-bea3-2054a763c6cc' class='xr-var-data-in' type='checkbox'><label for='data-1ab5dcd1-1b09-41d7-bea3-2054a763c6cc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.],
-        ...,
-        [0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.]],
-
-       [[0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.],
-        ...,
-        [0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.]],
-
-       ...,
-
-       [[0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.],
-        ...,
-        [0., 0., ..., 0., 0.],
-        [0., 1., ..., 0., 0.]],
-
-       [[0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.],
-        ...,
-        [0., 0., ..., 0., 0.],
-        [0., 0., ..., 0., 0.]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f23efe02-08da-4401-a8fc-a7136c49f828' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f23efe02-08da-4401-a8fc-a7136c49f828' class='xr-section-summary' >Attributes: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>t :</span></dt><dd>time dimension of all images. These are 5-min time steps</dd><dt><span>x :</span></dt><dd>x pixel dimension of the visible imagery</dd><dt><span>y :</span></dt><dd>y pixel dimension of the visible imagery</dd><dt><span>x2 :</span></dt><dd>x pixel dimension of the water vapor and infrared imagery</dd><dt><span>y2 :</span></dt><dd>y pixel dimension the water vapor and infrared imagery</dd><dt><span>x3 :</span></dt><dd>x pixel dimension of the vertically integrated liquid imagery</dd><dt><span>y3 :</span></dt><dd>y pixel dimension the vertically integrated liquid imagery</dd><dt><span>x4 :</span></dt><dd>x pixel dimension of the lightning flashes</dd><dt><span>y4 :</span></dt><dd>y pixel dimension of the lightning flashes</dd></dl></div></li></ul></div></div></div></div>
+    y4:       y pixel dimension of the lightning flashes</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-eeac5afa-24e3-4bed-8d68-033b530e42b1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-eeac5afa-24e3-4bed-8d68-033b530e42b1' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>x</span>: 768</li><li><span>y</span>: 768</li><li><span>t</span>: 12</li><li><span>x2</span>: 192</li><li><span>y2</span>: 192</li><li><span>x3</span>: 384</li><li><span>y3</span>: 384</li><li><span>x4</span>: 48</li><li><span>y4</span>: 48</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c0f9a805-8527-4a81-ae9e-69da2146e4e7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c0f9a805-8527-4a81-ae9e-69da2146e4e7' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-4bbd3d4a-7bdc-4540-a224-2d68c05390dc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4bbd3d4a-7bdc-4540-a224-2d68c05390dc' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>visible</span></div><div class='xr-var-dims'>(x, y, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3e7b7375-3d40-40f6-96bc-5ec4474806f0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3e7b7375-3d40-40f6-96bc-5ec4474806f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a769baa-05bf-4d94-ac21-342aadc72924' class='xr-var-data-in' type='checkbox'><label for='data-6a769baa-05bf-4d94-ac21-342aadc72924' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[7077888 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>water_vapor</span></div><div class='xr-var-dims'>(x2, y2, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0f3f494f-7d1f-4e11-aabd-7ded3112eee3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0f3f494f-7d1f-4e11-aabd-7ded3112eee3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47c410b1-4549-468e-9e49-0b87fdb9ca8c' class='xr-var-data-in' type='checkbox'><label for='data-47c410b1-4549-468e-9e49-0b87fdb9ca8c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[442368 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>clean_infrared</span></div><div class='xr-var-dims'>(x2, y2, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-19868b99-7f9a-429b-b351-ca6a24ee4f49' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-19868b99-7f9a-429b-b351-ca6a24ee4f49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0b80b3b5-fcfa-47d2-bec4-2e1eb7e5469c' class='xr-var-data-in' type='checkbox'><label for='data-0b80b3b5-fcfa-47d2-bec4-2e1eb7e5469c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[442368 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vil</span></div><div class='xr-var-dims'>(x3, y3, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-943f7bfc-65f8-4171-960f-f321a13df173' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-943f7bfc-65f8-4171-960f-f321a13df173' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8cdf28db-9195-4f02-aa20-43711fef7629' class='xr-var-data-in' type='checkbox'><label for='data-8cdf28db-9195-4f02-aa20-43711fef7629' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[1769472 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lightning_flashes</span></div><div class='xr-var-dims'>(x4, y4, t)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0b5691c9-a5bf-47fd-89b7-689080327d83' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0b5691c9-a5bf-47fd-89b7-689080327d83' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e2469fa6-4434-4cb5-8816-0997c3e40b83' class='xr-var-data-in' type='checkbox'><label for='data-e2469fa6-4434-4cb5-8816-0997c3e40b83' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[27648 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3a0a3f8c-8ae1-4fdb-a5ec-bce41f163877' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3a0a3f8c-8ae1-4fdb-a5ec-bce41f163877' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-30d7a0b0-5fd1-4a02-a11d-0140d53a16bc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-30d7a0b0-5fd1-4a02-a11d-0140d53a16bc' class='xr-section-summary' >Attributes: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>t :</span></dt><dd>time dimension of all images. These are 5-min time steps</dd><dt><span>x :</span></dt><dd>x pixel dimension of the visible imagery</dd><dt><span>y :</span></dt><dd>y pixel dimension of the visible imagery</dd><dt><span>x2 :</span></dt><dd>x pixel dimension of the water vapor and infrared imagery</dd><dt><span>y2 :</span></dt><dd>y pixel dimension the water vapor and infrared imagery</dd><dt><span>x3 :</span></dt><dd>x pixel dimension of the vertically integrated liquid imagery</dd><dt><span>y3 :</span></dt><dd>y pixel dimension the vertically integrated liquid imagery</dd><dt><span>x4 :</span></dt><dd>x pixel dimension of the lightning flashes</dd><dt><span>y4 :</span></dt><dd>y pixel dimension of the lightning flashes</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Trying to do the same thing with pyresample:</p>
 <div class="cell docutils container">
@@ -846,7 +834,7 @@ Attributes:
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_def</span><span class="p">,</span> <span class="n">cf_info</span> <span class="o">=</span> <span class="n">load_cf_area</span><span class="p">(</span><span class="s1">&#39;data/onestorm.nc&#39;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 </pre></div>
@@ -855,113 +843,113 @@ Attributes:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/file_manager.py:209,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">209</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/lru_cache.py:53,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">53</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/lru_cache.py:55,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">55</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/tmartin/Documents/GitHub/grid_explore/notebooks/data/onestorm.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False))]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/gridding-cookbook/gridding-cookbook/notebooks/data/onestorm.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;765519b3-d5ff-4f21-ae49-7e733f8230d9&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/pyresample/utils/cf.py:464,</span> in <span class="ni">load_cf_area</span><span class="nt">(nc_file, variable, y, x)</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/pyresample/utils/cf.py:464,</span> in <span class="ni">load_cf_area</span><span class="nt">(nc_file, variable, y, x)</span>
 <span class="g g-Whitespace">    </span><span class="mi">463</span> <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">464</span>     <span class="n">nc_handle</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">nc_file</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">465</span> <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/api.py:495,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, backend_kwargs, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">494</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">495</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">496</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">497</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">500</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">501</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/api.py:540,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">540</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">546</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">511</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span> <span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:550,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span> <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">550</span> <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">552</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">558</span>     <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span>     <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/netCDF4_.py:572,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">572</span> <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span>     <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:379,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">376</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">378</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">379</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/netCDF4_.py:376,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">376</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:327,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">327</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/netCDF4_.py:323,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">323</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:388,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/netCDF4_.py:385,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">385</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:382,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">382</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/netCDF4_.py:379,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">379</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/contextlib.py:135,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/file_manager.py:187,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">187</span> <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span> <span class="k">try</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/file_manager.py:197,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">197</span> <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span> <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/xarray/backends/file_manager.py:205,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">205</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="c1"># ensure file doesn&#39;t get overriden when opened again</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/xarray/backends/file_manager.py:215,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">215</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
 
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2307,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2463,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
 
-<span class="nn">File src/netCDF4/_netCDF4.pyx:1925,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2026,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: b&#39;/Users/tmartin/Documents/GitHub/grid_explore/notebooks/data/onestorm.nc&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: b&#39;/home/runner/work/gridding-cookbook/gridding-cookbook/notebooks/data/onestorm.nc&#39;
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/Users/tmartin/Documents/GitHub/grid_explore/notebooks/pyresample_intro.ipynb Cell 16</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/tmartin/Documents/GitHub/grid_explore/notebooks/pyresample_intro.ipynb#X21sZmlsZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">area_def</span><span class="p">,</span> <span class="n">cf_info</span> <span class="o">=</span> <span class="n">load_cf_area</span><span class="p">(</span><span class="s1">&#39;data/onestorm.nc&#39;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">area_def</span><span class="p">,</span> <span class="n">cf_info</span> <span class="o">=</span> <span class="n">load_cf_area</span><span class="p">(</span><span class="s1">&#39;data/onestorm.nc&#39;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/pyresample/utils/cf.py:466,</span> in <span class="ni">load_cf_area</span><span class="nt">(nc_file, variable, y, x)</span>
+<span class="nn">File /usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/pyresample/utils/cf.py:466,</span> in <span class="ni">load_cf_area</span><span class="nt">(nc_file, variable, y, x)</span>
 <span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="n">nc_handle</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">nc_file</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">465</span> <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">466</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;This file does not exist (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
 <span class="g g-Whitespace">    </span><span class="mi">467</span> <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">468</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;This file is probably not a valid netCDF file (</span><span class="si">{}</span><span class="s2">).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
 
-<span class="ne">FileNotFoundError</span>: This file does not exist ([Errno 2] No such file or directory: b&#39;/Users/tmartin/Documents/GitHub/grid_explore/notebooks/data/onestorm.nc&#39;)
+<span class="ne">FileNotFoundError</span>: This file does not exist ([Errno 2] No such file or directory: b&#39;/home/runner/work/gridding-cookbook/gridding-cookbook/notebooks/data/onestorm.nc&#39;)
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1019,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tmartin/opt/anaconda3/envs/ml_scratch/lib/python3.9/site-packages/pyproj/crs/crs.py:1282: UserWarning: You will likely lose important projection information when converting to a PROJ string from another format. See: https://proj.org/faq.html#what-is-the-best-format-for-describing-coordinate-reference-systems
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/gridding-cookbook-dev/lib/python3.10/site-packages/pyproj/crs/crs.py:1286: UserWarning: You will likely lose important projection information when converting to a PROJ string from another format. See: https://proj.org/faq.html#what-is-the-best-format-for-describing-coordinate-reference-systems
   proj = self._crs.to_proj4(version=version)
 </pre></div>
 </div>
@@ -1080,6 +1068,7 @@ Attributes:
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1092,7 +1081,7 @@ body.vscode-dark {
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -1309,6 +1298,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1330,14 +1324,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1347,13 +1343,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1391,7 +1390,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1406,12 +1406,12 @@ Coordinates:
   * x                                         (x) float64 -1.369e+06 ... 1.02...
   * y                                         (y) float64 1.489e+06 ... -9.08...
 Data variables:
-    reshape-f7ed86d06764c0963bd764b677b785a7  (y, x) float64 dask.array&lt;chunksize=(800, 800), meta=np.ndarray&gt;</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f9ac730c-edf3-4c3f-b131-554c1f03a5e4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f9ac730c-edf3-4c3f-b131-554c1f03a5e4' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>x</span>: 800</li><li><span class='xr-has-index'>y</span>: 800</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-238eb41f-c1f1-4815-8bb7-9ec5e807b515' class='xr-section-summary-in' type='checkbox'  checked><label for='section-238eb41f-c1f1-4815-8bb7-9ec5e807b515' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1.369e+06 -1.366e+06 ... 1.028e+06</div><input id='attrs-1b3003ba-ae80-463a-aa5b-e57f500cd7fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1b3003ba-ae80-463a-aa5b-e57f500cd7fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dca10eb2-2374-446a-8109-545d26924b22' class='xr-var-data-in' type='checkbox'><label for='data-dca10eb2-2374-446a-8109-545d26924b22' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-1369412.72, -1366412.72, -1363412.72, ...,  1021587.28,  1024587.28,
-        1027587.28])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.489e+06 1.486e+06 ... -9.085e+05</div><input id='attrs-4f168a20-c875-4e82-9231-abe07a284213' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4f168a20-c875-4e82-9231-abe07a284213' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-133a7844-972c-494e-9568-e121274719af' class='xr-var-data-in' type='checkbox'><label for='data-133a7844-972c-494e-9568-e121274719af' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1488531.36, 1485531.36, 1482531.36, ..., -902468.64, -905468.64,
-       -908468.64])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9097efd3-9c89-49a9-9475-734faf1b0beb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9097efd3-9c89-49a9-9475-734faf1b0beb' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>reshape-f7ed86d06764c0963bd764b677b785a7</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(800, 800), meta=np.ndarray&gt;</div><input id='attrs-a6efcc89-4a33-4456-90ac-4d52b17e1815' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a6efcc89-4a33-4456-90ac-4d52b17e1815' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f07c3fd0-b7a4-446d-a1a1-b6e3e1fd606d' class='xr-var-data-in' type='checkbox'><label for='data-f07c3fd0-b7a4-446d-a1a1-b6e3e1fd606d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    reshape-3b80823034f9b035b0e7b01199b79556  (y, x) float64 dask.array&lt;chunksize=(800, 800), meta=np.ndarray&gt;</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-eb5c752b-b093-4bfe-b55d-efa85d227cf6' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-eb5c752b-b093-4bfe-b55d-efa85d227cf6' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>x</span>: 800</li><li><span class='xr-has-index'>y</span>: 800</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-bc6bc710-9118-431a-902f-4bb6e7c3713a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bc6bc710-9118-431a-902f-4bb6e7c3713a' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1.369e+06 -1.366e+06 ... 1.028e+06</div><input id='attrs-71ac1fa1-4e58-43b6-bfa8-f76574dd59fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-71ac1fa1-4e58-43b6-bfa8-f76574dd59fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eeb38d50-f00b-44d4-b5cb-93dff7769ca9' class='xr-var-data-in' type='checkbox'><label for='data-eeb38d50-f00b-44d4-b5cb-93dff7769ca9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-1369412.72, -1366412.72, -1363412.72, ...,  1021587.28,  1024587.28,
+        1027587.28])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.489e+06 1.486e+06 ... -9.085e+05</div><input id='attrs-7983fd1b-535f-426c-b1b7-169c0c884a3b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7983fd1b-535f-426c-b1b7-169c0c884a3b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e6325e97-bdd3-4fc8-9542-c352f8cd90ce' class='xr-var-data-in' type='checkbox'><label for='data-e6325e97-bdd3-4fc8-9542-c352f8cd90ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1488531.36, 1485531.36, 1482531.36, ..., -902468.64, -905468.64,
+       -908468.64])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-904cee97-b4cd-437d-8a47-79d674110474' class='xr-section-summary-in' type='checkbox'  checked><label for='section-904cee97-b4cd-437d-8a47-79d674110474' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>reshape-3b80823034f9b035b0e7b01199b79556</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(800, 800), meta=np.ndarray&gt;</div><input id='attrs-a28e988d-0d01-4470-b17a-9212efffd8be' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a28e988d-0d01-4470-b17a-9212efffd8be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ee6cd3b3-81d7-47d3-8796-72cfc87733a0' class='xr-var-data-in' type='checkbox'><label for='data-ee6cd3b3-81d7-47d3-8796-72cfc87733a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
-            <table>
+            <table style="border-collapse: collapse;">
                 <thead>
                     <tr>
                         <td> </td>
@@ -1433,14 +1433,12 @@ Data variables:
                         <td> (800, 800) </td>
                     </tr>
                     <tr>
-                        <th> Count </th>
-                        <td> 41 Tasks </td>
-                        <td> 1 Chunks </td>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 41 graph layers </td>
                     </tr>
                     <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
                     </tr>
                 </tbody>
             </table>
@@ -1465,7 +1463,21 @@ Data variables:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-940b0c33-5558-4b2c-b950-e1faac7b0634' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-940b0c33-5558-4b2c-b950-e1faac7b0634' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-8dc07bf5-a140-46f1-aec2-5cd761617119' class='xr-section-summary-in' type='checkbox'  ><label for='section-8dc07bf5-a140-46f1-aec2-5cd761617119' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cdb39b67-6e3b-4c69-84ca-a8da9249212e' class='xr-index-data-in' type='checkbox'/><label for='index-cdb39b67-6e3b-4c69-84ca-a8da9249212e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-1369412.72, -1366412.72, -1363412.72, -1360412.72, -1357412.72,
+              -1354412.72, -1351412.72, -1348412.72, -1345412.72, -1342412.72,
+              ...
+               1000587.28,  1003587.28,  1006587.28,  1009587.28,  1012587.28,
+               1015587.28,  1018587.28,  1021587.28,  1024587.28,  1027587.28],
+             dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=800))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-dfc165e0-8b0f-47b3-99a9-e057675bb332' class='xr-index-data-in' type='checkbox'/><label for='index-dfc165e0-8b0f-47b3-99a9-e057675bb332' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([        1488531.36,         1485531.36,         1482531.36,
+                      1479531.36,         1476531.36,         1473531.36,
+                      1470531.36,         1467531.36,         1464531.36,
+                      1461531.36,
+              ...
+              -881468.6399999999, -884468.6399999999, -887468.6399999999,
+              -890468.6399999999, -893468.6399999999, -896468.6399999999,
+              -899468.6399999999, -902468.6399999999, -905468.6399999999,
+              -908468.6399999999],
+             dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=800))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5c504226-0d3b-4008-83df-8a63e240eed7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5c504226-0d3b-4008-83df-8a63e240eed7' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1505,6 +1517,7 @@ Data variables:
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1517,7 +1530,7 @@ body.vscode-dark {
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -1734,6 +1747,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1755,14 +1773,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1772,13 +1792,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1816,7 +1839,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1829,10 +1853,10 @@ dl.xr-attrs {
 Dimensions:                                 (y: 500, x: 100)
 Dimensions without coordinates: y, x
 Data variables:
-    array-c6304ed7e79d5c61e4fb47cdb25246bf  (y, x) float64 dask.array&lt;chunksize=(500, 100), meta=np.ndarray&gt;</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9d32a3f0-852b-4d02-9af7-83921f17273d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9d32a3f0-852b-4d02-9af7-83921f17273d' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>y</span>: 500</li><li><span>x</span>: 100</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ab2c2143-aee4-492b-b11d-f17aecaba612' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ab2c2143-aee4-492b-b11d-f17aecaba612' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-8d3c9c4b-fba2-4b56-ae03-505f4935e599' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8d3c9c4b-fba2-4b56-ae03-505f4935e599' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>array-c6304ed7e79d5c61e4fb47cdb25246bf</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(500, 100), meta=np.ndarray&gt;</div><input id='attrs-ab2d2539-332f-42ef-937b-b4b55557f02b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ab2d2539-332f-42ef-937b-b4b55557f02b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1648b518-6033-4690-8a69-eb829d78d2c8' class='xr-var-data-in' type='checkbox'><label for='data-1648b518-6033-4690-8a69-eb829d78d2c8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    array-c6304ed7e79d5c61e4fb47cdb25246bf  (y, x) float64 dask.array&lt;chunksize=(500, 100), meta=np.ndarray&gt;</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-33fe9f28-26ae-4fb7-baa6-35c8724e32d7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-33fe9f28-26ae-4fb7-baa6-35c8724e32d7' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>y</span>: 500</li><li><span>x</span>: 100</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3a87301d-f7b6-4ab5-a81e-0c007566eab0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3a87301d-f7b6-4ab5-a81e-0c007566eab0' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-f0ac19b3-2ea1-4aa1-bb25-2880c247fdb7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f0ac19b3-2ea1-4aa1-bb25-2880c247fdb7' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>array-c6304ed7e79d5c61e4fb47cdb25246bf</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(500, 100), meta=np.ndarray&gt;</div><input id='attrs-db55aace-d9c5-4d42-a2ef-a525923122ef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-db55aace-d9c5-4d42-a2ef-a525923122ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b06d7bf6-8448-487a-9735-e5f6921a0493' class='xr-var-data-in' type='checkbox'><label for='data-b06d7bf6-8448-487a-9735-e5f6921a0493' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
-            <table>
+            <table style="border-collapse: collapse;">
                 <thead>
                     <tr>
                         <td> </td>
@@ -1854,14 +1878,12 @@ Data variables:
                         <td> (500, 100) </td>
                     </tr>
                     <tr>
-                        <th> Count </th>
-                        <td> 1 Tasks </td>
-                        <td> 1 Chunks </td>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 1 graph layer </td>
                     </tr>
                     <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
                     </tr>
                 </tbody>
             </table>
@@ -1886,7 +1908,7 @@ Data variables:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-0ebfa0f4-bf53-430e-a385-fe0e6125b773' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0ebfa0f4-bf53-430e-a385-fe0e6125b773' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-afff0fcc-2ad3-498c-a029-743ab96b0d04' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-afff0fcc-2ad3-498c-a029-743ab96b0d04' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-96f9fe85-f25f-437a-ad52-6c9cdf1b954f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-96f9fe85-f25f-437a-ad52-6c9cdf1b954f' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="section" id="summary">
 <h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
