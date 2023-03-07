@@ -7,8 +7,8 @@ logo: notebooks/images/logos/pythia_logo-white-rtext.svg
 email: tmartin@ucar.edu
 copyright: '2022'
 
-description: A sample cookbook description.
-thumbnail: thumbnail.png
+description: A small collection of notebooks that explores some (re)gridding options within the [Xarray](https://docs.xarray.dev/en/stable/) ecosystem.
+thumbnail: grid_thumbnail.png
 tags:
   domains: 
     - sampledomain
