@@ -7,13 +7,15 @@ logo: notebooks/images/logos/pythia_logo-white-rtext.svg
 email: tmartin@ucar.edu
 copyright: '2022'
 
-description: A small collection of notebooks that explores some (re)gridding options within the [Xarray](https://docs.xarray.dev/en/stable/) ecosystem.
+description: A small collection of notebooks that explores some (re)gridding options within the Xarray ecosystem. The thumbnail image was created with the assistance of DALL·E 2.
 thumbnail: grid_thumbnail.png
 tags:
   domains: 
-    - sampledomain
   packages: 
-    - samplepackage
+    - xarray
+    - verde
+    - xESMF
+    - Pyresample
 
 execute:
   execute_notebooks: force
