@@ -4,23 +4,13 @@
 title: (re)Gridding with xarray
 author: Thomas Martin
 logo: notebooks/images/logos/pythia_logo-white-rtext.svg
-email: tmartin@ucar.edu
 copyright: '2022'
 
-description: A small collection of notebooks that explores some (re)gridding options within the Xarray ecosystem. The thumbnail image was created with the assistance of DALL·E 2.
-thumbnail: grid_thumbnail.png
-tags:
-  domains: 
-  packages: 
-    - xarray
-    - verde
-    - xESMF
-    - Pyresample
-
 execute:
-  execute_notebooks: force
+  # To execute notebooks via a Binder instead, replace 'cache' with 'binder'
+  execute_notebooks: cache
   timeout: 600
-  allow_errors: False  # cells with expected failures must set the `raises-exception` cell tag
+  allow_errors: False # cells with expected failures must set the `raises-exception` cell tag
 
 # Add a few extensions to help with parsing content
 parse:
@@ -37,7 +27,9 @@ parse:
 
 sphinx:
   config:
-    html_favicon: images/icons/favicon.ico
+    linkcheck_ignore: ["https://doi.org/*"] # don't run link checker on DOI links since they are immutable
+    nb_execution_raise_on_error: true # raise exception in build if there are notebook errors (this flag is ignored if building on binder)
+    html_favicon: notebooks/images/icons/favicon.ico
     html_last_updated_fmt: '%-d %B %Y'
     html_theme: sphinx_pythia_theme
     html_permalinks_icon: '<i class="fas fa-link"></i>'
@@ -57,7 +49,7 @@ sphinx:
           icon: fab fa-youtube-square
           type: fontawesome
       launch_buttons:
-        binderhub_url: http://binder.mypythia.org
+        binderhub_url: https://binder.projectpythia.org
         notebook_interface: jupyterlab
       extra_navbar: |
         Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
