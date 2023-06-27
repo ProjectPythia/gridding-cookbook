@@ -1,0 +1,8 @@
+thumbnail: grid_thumbnail.png
+tags:
+  domains: 
+  packages: 
+    - xarray
+    - verde
+    - xESMF
+    - Pyresample

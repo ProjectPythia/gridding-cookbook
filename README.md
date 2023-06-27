@@ -4,6 +4,7 @@
 
 [![nightly-build](https://github.com/ProjectPythia/gridding-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/gridding-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythia/gridding-cookbook/main?labpath=notebooks)
+[![DOI](https://zenodo.org/badge/540167581.svg)](https://zenodo.org/badge/latestdoi/540167581)
 
 This small cookbook will introduce three python packages that grids and re-grids data, that can interface with the xarray ecosystem. This is a common workflow, as modeling (climate, ML, etc.) outputs might not be all on the same scale or same grid. 
 

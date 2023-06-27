@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this cookbook, please cite it as below."
+authors:
+  # add additional entries for each author -- see https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md
+  - family-names: Martin
+    given-names: Thomas
+    website: https://github.com/ThomasMGeo
+  - name: "Gridding Cookbook contributors" # use the 'name' field to acknowledge organizations
+    website: "https://github.com/ProjectPythia/gridding-cookbook/graphs/contributors"
+title: "ARCO ERA-5 Interactive Visualization Cookbook"
+abstract: "A small collection of notebooks that explores some (re)gridding options within the Xarray ecosystem. The thumbnail image was created with the assistance of DALL·E 2."
