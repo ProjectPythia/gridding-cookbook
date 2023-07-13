@@ -4,7 +4,7 @@ authors:
   # add additional entries for each author -- see https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md
   - family-names: Martin
     given-names: Thomas
-    # orcid: https://orcid.org/0000-0002-9961-3821 # optional
+    orcid: 0000-0002-4171-0004 # optional
     # website: https://github.com/brian-rose # optional
     # affiliation: University at Albany (State University of New York) # optional
   - name: "Cookbook Template contributors" # use the 'name' field to acknowledge organizations
