@@ -15,7 +15,7 @@ dependencies:
   - cartopy
   - appdirs
   - verde
-  - xesmf
+  - xesmf>=0.7
   - seaborn
   - pip
   - pip:

@@ -1,6 +1,9 @@
 format: jb-book
 root: README
 parts:
+  - caption: Preamble
+    chapters:
+      - file: notebooks/how-to-cite
   - caption: re(Gridding)
     chapters:
       - file: notebooks/xESMF_introduction
