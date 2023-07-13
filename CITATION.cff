@@ -5,7 +5,7 @@ authors:
   - family-names: Martin
     given-names: Thomas
     orcid: "https://orcid.org/0000-0002-4171-0004" 
-  - name: "Cookbook Template contributors" # use the 'name' field to acknowledge organizations
-    website: "https://github.com/ProjectPythia/cookbook-template/graphs/contributors"
+  - name: "(re)Gridding with xarray contributors" # use the 'name' field to acknowledge organizations
+    website: "https://github.com/ProjectPythia/gridding-cookbook/graphs/contributors"
 title: "(re)Gridding with xarray"
 abstract: "A small collection of notebooks that explores some (re)gridding options within the Xarray ecosystem. The thumbnail image was created with the assistance of DALL·E 2."
