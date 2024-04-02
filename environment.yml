@@ -17,7 +17,7 @@ dependencies:
   - verde
   - xesmf>=0.7
   - seaborn
+  - sphinx-pythia-theme
   - pip
   - pip:
-      - sphinx-pythia-theme
       - watermark
