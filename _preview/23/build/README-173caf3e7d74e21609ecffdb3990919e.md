@@ -1,6 +1,6 @@
-<img src="thumbnail.png" alt="thumbnail" width="300"/>
-
 # (re)Gridding with xarray Cookbook
+
+<img src="thumbnail.png" alt="thumbnail" width="300"/>
 
 [![nightly-build](https://github.com/ProjectPythia/gridding-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/gridding-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/gridding-cookbook/main?labpath=notebooks)
