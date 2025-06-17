@@ -1,1 +1,1 @@
-import{a}from"/gridding-cookbook/build/_shared/chunk-XP77LPGR.js";import"/gridding-cookbook/build/_shared/chunk-42FUU6FG.js";import"/gridding-cookbook/build/_shared/chunk-2NH4LW52.js";export default a();
+import{a}from"/gridding-cookbook/_preview/23/build/_shared/chunk-XP77LPGR.js";import"/gridding-cookbook/_preview/23/build/_shared/chunk-42FUU6FG.js";import"/gridding-cookbook/_preview/23/build/_shared/chunk-2NH4LW52.js";export default a();
