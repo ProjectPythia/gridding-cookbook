@@ -1,0 +1,27 @@
+version: 1
+extends:
+  - https://raw.githubusercontent.com/projectpythia-mystmd/pythia-config/main/pythia.yml
+project:
+  title: (re)Gridding with xarray
+  authors:
+    - name: Thomas Martin
+  github: https://github.com/projectpythia-mystmd/gridding-cookbook
+  copyright: '2024'
+  toc:
+    - file: README.md
+    - title: Preamble
+      children:
+        - file: notebooks/how-to-cite.md
+    - title: re(Gridding)
+      children:
+        - file: notebooks/xESMF_introduction.ipynb
+        - file: notebooks/verde_intro.ipynb
+        - file: notebooks/pyresample_intro.ipynb
+  jupyter:
+      binder:
+        repo: projectpythia-mystmd/gridding-cookbook
+site:
+  options:
+    logo: notebooks/images/logos/pythia_logo-white-rtext.svg
+    folders: true
+  template: book-theme
